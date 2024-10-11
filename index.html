@@ -221,6 +221,18 @@
             75% { transform: translate(-2px); }
             100% { transform: translate(0); }
         }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            .product-item {
+                flex-basis: calc(100% - 20px); /* Make each product take the full width */
+            }
+            
+            img {
+                width: 100%; /* Make images fill the product item */
+                height: auto; /* Maintain aspect ratio */
+            }
+        }
     </style>
 </head>
 <body>
@@ -269,68 +281,19 @@
                 <div class="product-item">
                     <img src="freshpork.png" alt="Fresh Pork Meat">
                     <h3>Fresh Pork Meat</h3>
-                    <p>Delicious pork, naturally raised for premium quality.</p>
+                    <p>Premium pork cuts from our happy and healthy pigs.</p>
                 </div>
                 <div class="product-item">
-                    <img src="cowmeat.jfif" alt="Fresh Cow Meat">
-                    <h3>Fresh Cow Meat</h3>
-                    <p>Tender beef from grass-fed cows, full of flavor.</p>
+                    <img src="farmproducts.webp" alt="Farm Products">
+                    <h3>Farm Products</h3>
+                    <p>Explore a variety of unique farm products, handmade with care.</p>
                 </div>
                 <div class="product-item">
-                    <img src="eggs.webp" alt="Fresh Eggs">
-                    <h3>Fresh Eggs</h3>
-                    <p>Farm-fresh eggs from happy, free-range chickens.</p>
-                </div>
-                <div class="product-item">
-                    <img src="seafood.png" alt="Seafood">
-                    <h3>Seafood</h3>
-                    <p>Fresh and sustainable seafood sourced from local waters.</p>
-                </div>
-                <div class="product-item">
-                    <img src="frozen.png" alt="Frozen Products">
-                    <h3>Frozen Products</h3>
-                    <p>Convenient and delicious frozen goods for your pantry.</p>
-                </div>
-                <div class="product-item">
-                    <img src="livechicken.png" alt="Live Chickens">
-                    <h3>Live Chickens</h3>
-                    <p>Healthy chickens, raised with care for your farm.</p>
-                </div>
-                <div class="product-item">
-                    <img src="pig.png" alt="Live Pigs">
-                    <h3>Live Pigs</h3>
-                    <p>Quality pigs, perfect for starting your own farm.</p>
+                    <img src="dairyproducts.webp" alt="Dairy Products">
+                    <h3>Dairy Products</h3>
+                    <p>Rich and creamy dairy products, sourced from our pasture-raised cows.</p>
                 </div>
             </div>
-        </section>
-        
-        <section>
-            <h2>Testimonials</h2>
-            <p>"Skye Farm provides the freshest produce and meats! The quality is unmatched!" - Sarah K.</p>
-            <p>"I love supporting a local farm that practices sustainability. Highly recommend!" - Mark L.</p>
-        </section>
-
-        <section>
-            <h2>FAQs</h2>
-            <h3>What types of products do you offer?</h3>
-            <p>We offer a variety of fresh produce, meats, and live animals, including fruits, vegetables, beef, pork, and chicken.</p>
-            <h3>Do you practice organic farming?</h3>
-            <p>Yes! We believe in sustainable practices that nurture the environment and provide the best quality products.</p>
-        </section>
-
-        <section>
-            <h2>Blog</h2>
-            <p>Stay tuned for updates, tips on farming, and recipes featuring our fresh produce!</p>
-        </section>
-
-        <section>
-            <h2>Gallery</h2>
-            <p>Check out our farm photos showcasing our produce, animals, and daily life on Skye Farm!</p>
-        </section>
-
-        <section>
-            <h2>Our Team</h2>
-            <p>Meet the dedicated team behind Skye Farm, committed to bringing you the best products and sustainable practices.</p>
         </section>
 
         <section>
@@ -346,7 +309,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Skye Farm</p>
+        <p>&copy; 2024 Skye Farm. All rights reserved.</p>
     </footer>
 </body>
 </html>
