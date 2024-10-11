@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skye Farm</title>
+    <style>
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #2c3e50; /* Dark blue text */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: #ff5722; /* Vibrant orange header */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ffffff; /* White for better visibility */
+            animation: bounceIn 1s ease; /* Bounce-in animation */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            position: relative; /* For underline effect */
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ffffff; /* White underline */
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Expand underline on hover */
+        }
+
+        nav a:hover {
+            color: #ffcc80; /* Light orange on hover */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto; /* Center the main content */
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #ffffff; /* White background for sections */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+            transform: translateY(20px); /* Start slightly below */
+            opacity: 0; /* Start hidden */
+            animation: slideIn 0.5s forwards; /* Slide-in animation */
+            animation-delay: 0.5s; /* Delay for sections */
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-item {
+            background-color: #ffe0b2; /* Light orange background for products */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px;
+            margin-bottom: 20px;
+            flex-basis: calc(30% - 20px); /* Three products per row */
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative; /* Position for pseudo-elements */
+            overflow: hidden; /* Hide overflow for animations */
+        }
+
+        .product-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 87, 34, 0.5); /* Orange overlay */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px; /* Match corners */
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            animation: shake 0.3s; /* Shake effect on hover */
+        }
+
+        .product-item:hover::after {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        footer {
+            background-color: #ff5722; /* Vibrant orange footer */
+            color: #ffffff; /* White text */
+            padding: 10px;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+            color: #ff5722; /* Consistent vibrant orange */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Rounded image corners */
+            transition: transform 0.3s ease; /* Image zoom effect */
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto; /* Center the form */
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ff5722; /* Match label color */
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ff5722; /* Vibrant orange border */
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ff5722; /* Vibrant orange button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d45d22; /* Darker orange on hover */
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+
+        /* Keyframes for animations */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(0); }
+            25% { transform: translate(-2px); }
+            50% { transform: translate(2px); }
+            75% { transform: translate(-2px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Skye Farm</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Our Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Story</h2>
+            <p>At Skye Farm, we cultivate fresh, organic produce with love and dedication. Our journey began with a simple passion for farming, rooted in a respect for nature and a desire to bring the best food to our community.</p>
+            <p>We believe in sustainable practices that nurture the environment, ensuring that our farm remains a thriving ecosystem for generations to come.</p>
+        </section>
+
+        <section>
+            <h2>Our Products</h2>
+            <div class="product-container">
+                <div class="product-item">
+                    <img src="freshfruits.webp" alt="Fresh Fruits">
+                    <h3>Fresh Fruits</h3>
+                    <p>Delicious and assorted fresh fruits, hand-picked from our farm.</p>
+                </div>
+                <div class="product-item">
+                    <img src="organicveggies.webp" alt="Veggies">
+                    <h3>Veggies</h3>
+                    <p>Nutritious and crisp vegetables, grown organically.</p>
+                </div>
+                <div class="product-item">
+                    <img src="chickenmeat.webp" alt="Fresh Chicken Meat">
+                    <h3>Fresh Chicken Meat</h3>
+                    <p>Juicy chicken meat, ethically sourced from our farm.</p>
+                </div>
+                <div class="product-item">
+                    <img src="freshpork.png" alt="Fresh Pork Meat">
+                    <h3>Fresh Pork Meat</h3>
+                    <p>Delicious pork, naturally raised for premium quality.</p>
+                </div>
+                <div class="product-item">
+                    <img src="cowmeat.jfif" alt="Fresh Cow Meat">
+                    <h3>Fresh Cow Meat</h3>
+                    <p>Tender beef from grass-fed cows, full of flavor.</p>
+                </div>
+                <div class="product-item">
+                    <img src="eggs.png" alt="Fresh Eggs">
+                    <h3>Fresh Eggs</h3>
+                    <p>Farm-fresh eggs from happy, free-range chickens.</p>
+                </div>
+                <div class="product-item">
+                    <img src="seafood.png" alt="Seafood">
+                    <h3>Seafood</h3>
+                    <p>Fresh and sustainable seafood sourced from local waters.</p>
+                </div>
+                <div class="product-item">
+                    <img src="frozen.png" alt="Frozen Products">
+                    <h3>Frozen Products</h3>
+                    <p>Convenient and delicious frozen goods for your pantry.</p>
+                </div>
+                <div class="product-item">
+                    <img src="livechicken.png" alt="Live Chickens">
+                    <h3>Live Chickens</h3>
+                    <p>Healthy chickens, raised with care for your farm.</p>
+                </div>
+                <div class="product-item">
+                    <img src="pig.png" alt="Live Pigs">
+                    <h3>Live Pigs</h3>
+                    <p>Quality pigs, perfect for starting your own farm.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Testimonials</h2>
+            <p>"Skye Farm provides the freshest produce and meats! The quality is unmatched!" - Sarah K.</p>
+            <p>"I love supporting a local farm that practices sustainability. Highly recommend!" - Mark L.</p>
+        </section>
+
+        <section>
+            <h2>FAQs</h2>
+            <h3>What types of products do you offer?</h3>
+            <p>We offer a variety of fresh produce, meats, and live animals, including fruits, vegetables, beef, pork, and chicken.</p>
+            <h3>Do you practice organic farming?</h3>
+            <p>Yes! We believe in sustainable practices that nurture the environment and provide the best quality products.</p>
+        </section>
+
+        <section>
+            <h2>Blog</h2>
+            <p>Stay tuned for updates, tips on farming, and recipes featuring our fresh produce!</p>
+        </section>
+
+        <section>
+            <h2>Gallery</h2>
+            <p>Check out our farm photos showcasing our produce, animals, and daily life on Skye Farm!</p>
+        </section>
+
+        <section>
+            <h2>Our Team</h2>
+            <p>Meet the dedicated team behind Skye Farm, committed to bringing you the best products and sustainable practices.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Skye Farm</p>
+    </footer>
+</body>
+</html>
