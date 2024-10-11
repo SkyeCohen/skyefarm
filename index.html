@@ -5,69 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skye Farm</title>
     <style>
-        /* CSS Reset */
-        * {
-            box-sizing: border-box;
-        }
+  /* CSS Reset */
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff; /* Light blue background */
-            color: #2c3e50; /* Dark blue text */
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #2c3e50; /* Dark blue text */
+}
 
-        header {
-            background-color: #ff5722; /* Vibrant orange header */
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+header {
+    background-color: #ff5722; /* Vibrant orange header */
+    padding: 20px;
+    text-align: center;
+}
 
-        header h1 {
-            margin: 0;
-            color: #ffffff; /* White for better visibility */
-            animation: bounceIn 1s ease; /* Bounce-in animation */
-        }
+header h1 {
+    margin: 0;
+    color: #ffffff; /* White for better visibility */
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
 
-        nav li {
-            display: inline-block;
-            margin: 0 15px;
-        }
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
 
-        nav a {
-            color: #ffffff; /* White text */
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            position: relative; /* For underline effect */
-        }
+nav a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #ffffff; /* White underline */
-            transition: width 0.3s ease;
-        }
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto; /* Center the main content */
+}
 
-        nav a:hover::after {
-            width: 100%; /* Expand underline on hover */
-        }
+.faq {
+    margin-bottom: 20px;
+}
 
-        nav a:hover {
-            color: #ffcc80; /* Light orange on hover */
-        }
+.question {
+    cursor: pointer;
+    color: #ff5722; /* Match question color */
+    font-weight: bold;
+}
+
+.answer {
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition for showing answer */
+}
+
+.answer.show {
+    display: block; /* Show when active */
+    opacity: 1; /* Fade in */
+}
 
         main {
             padding: 20px;
@@ -188,6 +193,89 @@
             transform: translateY(-3px); /* Lift effect on hover */
         }
 
+        .carousel {
+    position: relative;
+    width: 100%; /* Ensure carousel takes the full width */
+    margin: auto;
+    overflow: hidden; /* Hide overflowing images */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+}
+
+.carousel img {
+    width: 100%; /* Set width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the space while preserving aspect ratio */
+    display: none; /* Hide images by default */
+}
+
+
+.carousel img.active {
+    display: block; /* Show active image */
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 100; /* Make sure buttons are above images */
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1); /* Button hover effect */
+}
+
+#testimonials {
+    text-align: center;
+    padding: 20px;
+}
+
+.testimonial-container {
+    position: relative;
+    height: 150px; /* Adjust based on your content */
+}
+
+.testimonial {
+    display: none; /* Hide all testimonials by default */
+}
+
+.testimonial.active {
+    display: block; /* Show the active testimonial */
+}
+
+button {
+    background-color: #d45d22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff5722;
+}
+
+
+
         /* Keyframes for animations */
         @keyframes bounceIn {
             0% {
@@ -242,6 +330,28 @@
     </header>
 
     <main>
+
+        <section>
+            <h2>Gallery</h2>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="freshfruits.webp" alt="Fresh Fruits" class="active">
+                    <img src="organicveggies.webp" alt="Organic Veggies">
+                    <img src="chickenmeat.webp" alt="Fresh Chicken Meat">
+                    <img src="freshpork.png" alt="Fresh Pork Meat">
+                    <img src="cowmeat.jfif" alt="Fresh Cow Meat">
+                    <img src="eggs.webp" alt="Fresh Eggs">
+                    <img src="seafood.png" alt="Seafood">
+                    <img src="frozen.png" alt="Frozen Products">
+                    <img src="livechicken.png" alt="Live Chickens">
+                    <img src="pig.png" alt="Live Pigs">
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </section>
+        
+
         <section>
             <h2>Our Story</h2>
             <p>At Skye Farm, we cultivate fresh, organic produce with love and dedication. Our journey began with a simple passion for farming, rooted in a respect for nature and a desire to bring the best food to our community.</p>
@@ -304,18 +414,53 @@
             </div>
         </section>
         
-        <section>
+        <section id="testimonials">
             <h2>Testimonials</h2>
-            <p>"Skye Farm provides the freshest produce and meats! The quality is unmatched!" - Sarah K.</p>
-            <p>"I love supporting a local farm that practices sustainability. Highly recommend!" - Mark L.</p>
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <p>"Skye Farm has the best organic produce! I've never tasted anything fresher!"</p>
+                    <p><strong>- Emily R.</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"The staff is friendly and knowledgeable. I love supporting local farms!"</p>
+                    <p><strong>- John D.</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"The variety of products is fantastic! I always find something new to try."</p>
+                    <p><strong>- Sarah P.</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"I appreciate the sustainable farming practices at Skye Farm!"</p>
+                    <p><strong>- Mark L.</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"Shopping at Skye Farm has become a weekly tradition for my family!"</p>
+                    <p><strong>- Laura K.</strong></p>
+                </div>
+            </div>
+            <button class="prev">Previous</button>
+            <button class="next">Next</button>
         </section>
+        
 
         <section>
             <h2>FAQs</h2>
-            <h3>What types of products do you offer?</h3>
-            <p>We offer a variety of fresh produce, meats, and live animals, including fruits, vegetables, beef, pork, and chicken.</p>
-            <h3>Do you practice organic farming?</h3>
-            <p>Yes! We believe in sustainable practices that nurture the environment and provide the best quality products.</p>
+            <div class="faq">
+                <h3 class="question">What types of products do you offer?</h3>
+                <p class="answer">We offer a variety of fresh produce, meats, and live animals, including fruits, vegetables, beef, pork, and chicken.</p>
+            </div>
+            <div class="faq">
+                <h3 class="question">Do you practice organic farming?</h3>
+                <p class="answer">Yes! We believe in sustainable practices that nurture the environment and provide the best quality products.</p>
+            </div>
+            <div class="faq">
+                <h3 class="question">How can I place an order?</h3>
+                <p class="answer">You can place an order through our website or by contacting us directly via phone or email.</p>
+            </div>
+            <div class="faq">
+                <h3 class="question">Where is Skye Farm located?</h3>
+                <p class="answer">Skye Farm is located in the beautiful place of Maragondon, Cavite.</p>
+            </div>
         </section>
 
         <section>
@@ -343,6 +488,72 @@
                 <input type="submit" value="Submit">
             </form>
         </section>
+
+        <script>
+            // Image Carousel Functionality
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.carousel img');
+            const totalImages = images.length;
+        
+            // Function to change the slide
+            function changeSlide(direction) {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + direction + totalImages) % totalImages; // Loop around
+                images[currentIndex].classList.add('active');
+            }
+        
+            // Automatic slide rotation
+            setInterval(() => {
+                changeSlide(1);
+            }, 3000); // Change image every 3 seconds
+        
+            // Initialize the first image
+            images[currentIndex].classList.add('active');
+        
+            // FAQ Toggle Functionality
+            document.addEventListener("DOMContentLoaded", function () {
+                const questions = document.querySelectorAll('.question');
+        
+                questions.forEach(question => {
+                    question.addEventListener('click', () => {
+                        const answer = question.nextElementSibling;
+                        answer.classList.toggle('show'); // Toggle the answer visibility
+                    });
+                });
+            });
+        
+            // Testimonials Carousel Functionality
+            let currentTestimonialIndex = 0;
+            const testimonials = document.querySelectorAll('.testimonial');
+            const totalTestimonials = testimonials.length;
+        
+            // Function to show testimonial based on index
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.classList.remove('active'); // Hide all testimonials
+                    if (i === index) {
+                        testimonial.classList.add('active'); // Show the current testimonial
+                    }
+                });
+            }
+        
+            // Set up event listeners for buttons
+            document.querySelector('#testimonials .next').addEventListener('click', () => {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials; // Move to the next testimonial
+                showTestimonial(currentTestimonialIndex);
+            });
+        
+            document.querySelector('#testimonials .prev').addEventListener('click', () => {
+                currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials; // Move to the previous testimonial
+                showTestimonial(currentTestimonialIndex);
+            });
+        
+            // Show the first testimonial initially
+            showTestimonial(currentTestimonialIndex);
+        </script>
+        
+        
+
     </main>
 
     <footer>
@@ -350,4 +561,3 @@
     </footer>
 </body>
 </html>
-
