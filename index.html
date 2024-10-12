@@ -4,312 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skye Farm</title>
-    <style>
-  /* CSS Reset */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff; /* Light blue background */
-    color: #2c3e50; /* Dark blue text */
-}
-
-header {
-    background-color: #ff5722; /* Vibrant orange header */
-    padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    color: #ffffff; /* White for better visibility */
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-}
-
-nav li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-nav a {
-    color: #ffffff; /* White text */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto; /* Center the main content */
-}
-
-.faq {
-    margin-bottom: 20px;
-}
-
-.question {
-    cursor: pointer;
-    color: #ff5722; /* Match question color */
-    font-weight: bold;
-}
-
-.answer {
-    display: none; /* Hidden by default */
-    margin-top: 10px;
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.5s ease; /* Smooth transition for showing answer */
-}
-
-.answer.show {
-    display: block; /* Show when active */
-    opacity: 1; /* Fade in */
-}
-
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto; /* Center the main content */
-        }
-
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #ffffff; /* White background for sections */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-            transform: translateY(20px); /* Start slightly below */
-            opacity: 0; /* Start hidden */
-            animation: slideIn 0.5s forwards; /* Slide-in animation */
-            animation-delay: 0.5s; /* Delay for sections */
-        }
-
-        .product-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .product-item {
-            background-color: #ffe0b2; /* Light orange background for products */
-            border-radius: 8px; /* Rounded corners */
-            padding: 10px;
-            margin-bottom: 20px;
-            flex-basis: calc(30% - 20px); /* Three products per row */
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative; /* Position for pseudo-elements */
-            overflow: hidden; /* Hide overflow for animations */
-        }
-
-        .product-item::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 87, 34, 0.5); /* Orange overlay */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 8px; /* Match corners */
-        }
-
-        .product-item:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            animation: shake 0.3s; /* Shake effect on hover */
-        }
-
-        .product-item:hover::after {
-            opacity: 1; /* Show overlay on hover */
-        }
-
-        footer {
-            background-color: #ff5722; /* Vibrant orange footer */
-            color: #ffffff; /* White text */
-            padding: 10px;
-            text-align: center;
-        }
-
-        h1, h2, h3 {
-            font-weight: bold;
-            color: #ff5722; /* Consistent vibrant orange */
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px; /* Rounded image corners */
-            transition: transform 0.3s ease; /* Image zoom effect */
-        }
-
-        img:hover {
-            transform: scale(1.05); /* Zoom effect on hover */
-        }
-
-        /* Form Styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: auto; /* Center the form */
-        }
-
-        label {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #ff5722; /* Match label color */
-        }
-
-        input[type="text"],
-        input[type="email"] {
-            padding: 10px;
-            border: 1px solid #ff5722; /* Vibrant orange border */
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-
-        input[type="submit"] {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #ff5722; /* Vibrant orange button */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
-        }
-
-        input[type="submit"]:hover {
-            background-color: #d45d22; /* Darker orange on hover */
-            transform: translateY(-3px); /* Lift effect on hover */
-        }
-
-        .carousel {
-    position: relative;
-    width: 100%; /* Ensure carousel takes the full width */
-    margin: auto;
-    overflow: hidden; /* Hide overflowing images */
-    border-radius: 10px; /* Optional: Rounded corners */
-}
-
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
-}
-
-.carousel img {
-    width: 100%; /* Set width to 100% of the container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the space while preserving aspect ratio */
-    display: none; /* Hide images by default */
-}
-
-
-.carousel img.active {
-    display: block; /* Show active image */
-}
-
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
-    padding: 10px;
-    z-index: 100; /* Make sure buttons are above images */
-}
-
-button.prev {
-    left: 10px;
-}
-
-button.next {
-    right: 10px;
-}
-
-button:hover {
-    background-color: rgba(255, 255, 255, 1); /* Button hover effect */
-}
-
-#testimonials {
-    text-align: center;
-    padding: 20px;
-}
-
-.testimonial-container {
-    position: relative;
-    height: 150px; /* Adjust based on your content */
-}
-
-.testimonial {
-    display: none; /* Hide all testimonials by default */
-}
-
-.testimonial.active {
-    display: block; /* Show the active testimonial */
-}
-
-button {
-    background-color: #d45d22;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 10px;
-}
-
-button:hover {
-    background-color: #ff5722;
-}
-
-
-
-        /* Keyframes for animations */
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes shake {
-            0% { transform: translate(0); }
-            25% { transform: translate(-2px); }
-            50% { transform: translate(2px); }
-            75% { transform: translate(-2px); }
-            100% { transform: translate(0); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
@@ -331,25 +26,53 @@ button:hover {
 
     <main>
 
+        <div class="video-background">
+            <video autoplay muted loop>
+              <source src="VidnozTextToVideo.mp4" type="video/mp4">
+            </video>
+          </div>
+          
+
         <section>
             <h2>Gallery</h2>
             <div class="carousel">
                 <div class="carousel-images">
-                    <img src="freshfruits.webp" alt="Fresh Fruits" class="active">
-                    <img src="organicveggies.webp" alt="Organic Veggies">
-                    <img src="chickenmeat.webp" alt="Fresh Chicken Meat">
-                    <img src="freshpork.png" alt="Fresh Pork Meat">
-                    <img src="cowmeat.jfif" alt="Fresh Cow Meat">
-                    <img src="eggs.webp" alt="Fresh Eggs">
-                    <img src="seafood.png" alt="Seafood">
-                    <img src="frozen.png" alt="Frozen Products">
-                    <img src="livechicken.png" alt="Live Chickens">
-                    <img src="pig.png" alt="Live Pigs">
+                    <div class="carousel-card">
+                        <img src="freshfruits.webp" alt="Fresh Fruits" class="active">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="organicveggies.webp" alt="Organic Veggies">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="chickenmeat.webp" alt="Fresh Chicken Meat">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="freshpork.png" alt="Fresh Pork Meat">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="cowmeat.jfif" alt="Fresh Cow Meat">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="eggs.webp" alt="Fresh Eggs">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="seafood.png" alt="Seafood">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="frozen.png" alt="Frozen Products">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="livechicken.png" alt="Live Chickens">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="pig.png" alt="Live Pigs">
+                    </div>
                 </div>
                 <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
                 <button class="next" onclick="changeSlide(1)">&#10095;</button>
             </div>
         </section>
+        
         
 
         <section>
@@ -488,76 +211,13 @@ button:hover {
                 <input type="submit" value="Submit">
             </form>
         </section>
-
-        <script>
-            // Image Carousel Functionality
-            let currentIndex = 0;
-            const images = document.querySelectorAll('.carousel img');
-            const totalImages = images.length;
-        
-            // Function to change the slide
-            function changeSlide(direction) {
-                images[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + direction + totalImages) % totalImages; // Loop around
-                images[currentIndex].classList.add('active');
-            }
-        
-            // Automatic slide rotation
-            setInterval(() => {
-                changeSlide(1);
-            }, 3000); // Change image every 3 seconds
-        
-            // Initialize the first image
-            images[currentIndex].classList.add('active');
-        
-            // FAQ Toggle Functionality
-            document.addEventListener("DOMContentLoaded", function () {
-                const questions = document.querySelectorAll('.question');
-        
-                questions.forEach(question => {
-                    question.addEventListener('click', () => {
-                        const answer = question.nextElementSibling;
-                        answer.classList.toggle('show'); // Toggle the answer visibility
-                    });
-                });
-            });
-        
-            // Testimonials Carousel Functionality
-            let currentTestimonialIndex = 0;
-            const testimonials = document.querySelectorAll('.testimonial');
-            const totalTestimonials = testimonials.length;
-        
-            // Function to show testimonial based on index
-            function showTestimonial(index) {
-                testimonials.forEach((testimonial, i) => {
-                    testimonial.classList.remove('active'); // Hide all testimonials
-                    if (i === index) {
-                        testimonial.classList.add('active'); // Show the current testimonial
-                    }
-                });
-            }
-        
-            // Set up event listeners for buttons
-            document.querySelector('#testimonials .next').addEventListener('click', () => {
-                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials; // Move to the next testimonial
-                showTestimonial(currentTestimonialIndex);
-            });
-        
-            document.querySelector('#testimonials .prev').addEventListener('click', () => {
-                currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials; // Move to the previous testimonial
-                showTestimonial(currentTestimonialIndex);
-            });
-        
-            // Show the first testimonial initially
-            showTestimonial(currentTestimonialIndex);
-        </script>
-        
-        
-
     </main>
 
     <footer>
         <p>&copy; 2023 Skye Farm</p>
     </footer>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+
 </body>
 </html>
