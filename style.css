@@ -1,7 +1,3 @@
-<style>
-
-
-        
 /* CSS Reset */
 * {
   box-sizing: border-box;
@@ -11,7 +7,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f8ff; /* Light blue background */
+  background: linear-gradient(to bottom right, #ff7e5f, #feb47b); /* Gradient background */
   color: #2c3e50; /* Dark blue text */
 }
 
@@ -44,21 +40,20 @@ nav a {
 }
 
 .video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* Behind other content */
-  }
-  
-  .video-background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the area */
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Behind other content */
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area */
+}
 
 main {
   padding: 20px;
@@ -88,156 +83,149 @@ main {
   opacity: 1; /* Fade in */
 }
 
-      main {
-          padding: 20px;
-          max-width: 800px;
-          margin: auto; /* Center the main content */
-      }
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #ffffff; /* White background for sections */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  transform: translateY(20px); /* Start slightly below */
+  opacity: 0; /* Start hidden */
+  animation: slideIn 0.5s forwards; /* Slide-in animation */
+  animation-delay: 0.5s; /* Delay for sections */
+}
 
-      section {
-          margin-bottom: 40px;
-          padding: 20px;
-          background-color: #ffffff; /* White background for sections */
-          border-radius: 10px; /* Rounded corners */
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-          transform: translateY(20px); /* Start slightly below */
-          opacity: 0; /* Start hidden */
-          animation: slideIn 0.5s forwards; /* Slide-in animation */
-          animation-delay: 0.5s; /* Delay for sections */
-      }
+.product-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: space-between; /* Space between items */
+}
 
-      .product-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-      }
+.product-item {
+  background-color: #ffe0b2; /* Light orange background for products */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  margin-bottom: 20px;
+  flex-basis: calc(100% - 20px); /* Default to full width on mobile */
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative; /* Position for pseudo-elements */
+  overflow: hidden; /* Hide overflow for animations */
+}
 
-      .product-item {
-          background-color: #ffe0b2; /* Light orange background for products */
-          border-radius: 8px; /* Rounded corners */
-          padding: 10px;
-          margin-bottom: 20px;
-          flex-basis: calc(30% - 20px); /* Three products per row */
-          text-align: center;
-          transition: transform 0.3s ease;
-          position: relative; /* Position for pseudo-elements */
-          overflow: hidden; /* Hide overflow for animations */
-      }
+.product-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 87, 34, 0.5); /* Orange overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px; /* Match corners */
+}
 
-      .product-item::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(255, 87, 34, 0.5); /* Orange overlay */
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          border-radius: 8px; /* Match corners */
-      }
+.product-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  animation: shake 0.3s; /* Shake effect on hover */
+}
 
-      .product-item:hover {
-          transform: translateY(-5px); /* Lift effect on hover */
-          animation: shake 0.3s; /* Shake effect on hover */
-      }
+.product-item:hover::after {
+  opacity: 1; /* Show overlay on hover */
+}
 
-      .product-item:hover::after {
-          opacity: 1; /* Show overlay on hover */
-      }
+footer {
+  background-color: #ff5722; /* Vibrant orange footer */
+  color: #ffffff; /* White text */
+  padding: 10px;
+  text-align: center;
+}
 
-      footer {
-          background-color: #ff5722; /* Vibrant orange footer */
-          color: #ffffff; /* White text */
-          padding: 10px;
-          text-align: center;
-      }
+h1, h2, h3 {
+  font-weight: bold;
+  color: #ff5722; /* Consistent vibrant orange */
+}
 
-      h1, h2, h3 {
-          font-weight: bold;
-          color: #ff5722; /* Consistent vibrant orange */
-      }
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; /* Rounded image corners */
+  transition: transform 0.3s ease; /* Image zoom effect */
+}
 
-      img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 5px; /* Rounded image corners */
-          transition: transform 0.3s ease; /* Image zoom effect */
-      }
+img:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
 
-      img:hover {
-          transform: scale(1.05); /* Zoom effect on hover */
-      }
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto; /* Center the form */
+}
 
-      /* Form Styles */
-      form {
-          display: flex;
-          flex-direction: column;
-          max-width: 400px;
-          margin: auto; /* Center the form */
-      }
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff5722; /* Match label color */
+}
 
-      label {
-          margin-top: 10px;
-          font-weight: bold;
-          color: #ff5722; /* Match label color */
-      }
+input[type="text"],
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ff5722; /* Vibrant orange border */
+  border-radius: 5px;
+  margin-top: 5px;
+}
 
-      input[type="text"],
-      input[type="email"] {
-          padding: 10px;
-          border: 1px solid #ff5722; /* Vibrant orange border */
-          border-radius: 5px;
-          margin-top: 5px;
-      }
+input[type="submit"] {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ff5722; /* Vibrant orange button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
+}
 
-      input[type="submit"] {
-          margin-top: 15px;
-          padding: 10px;
-          background-color: #ff5722; /* Vibrant orange button */
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
-      }
+input[type="submit"]:hover {
+  background-color: #d45d22; /* Darker orange on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
 
-      input[type="submit"]:hover {
-          background-color: #d45d22; /* Darker orange on hover */
-          transform: translateY(-3px); /* Lift effect on hover */
-      }
+.carousel {
+  position: relative;
+  overflow: hidden; /* Hide overflow for carousel effect */
+}
 
-      .carousel {
-        position: relative;
-        overflow: hidden; /* Hide overflow for carousel effect */
-    }
-    
-    .carousel-images {
-        display: flex; /* Arrange cards in a row */
-        transition: transform 0.5s ease-in-out; /* Smooth transition */
-    }
-    
-    .carousel-card {
-        min-width: 100%; /* Each card takes full width */
-        transition: transform 0.5s; /* Transition for scaling effect */
-        transform: scale(1);
-    }
-    
-    .carousel-card img {
-        width: 100%; /* Ensure images fit the card */
-        border-radius: 10px; /* Add rounded corners */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    }
-    
-    .carousel-card:hover {
-        transform: scale(1.05); /* Scale on hover */
-    }
-    
-    /* Active image class */
-    .carousel-card img.active {
-        opacity: 1; /* Make active image fully visible */
-    }
-    
+.carousel-images {
+  display: flex; /* Arrange cards in a row */
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.carousel-card {
+  min-width: 100%; /* Each card takes full width */
+  transition: transform 0.5s; /* Transition for scaling effect */
+  transform: scale(1);
+}
+
+.carousel-card img {
+  width: 100%; /* Ensure images fit the card */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.carousel-card:hover {
+  transform: scale(1.05); /* Scale on hover */
+}
+
+/* Active image class */
+.carousel-card img.active {
+  opacity: 1; /* Make active image fully visible */
+}
 
 button.prev, button.next {
   position: absolute;
@@ -267,6 +255,9 @@ button:hover {
 #testimonials {
   text-align: center;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column */
+  gap: 20px; /* Space between testimonials */
 }
 
 .testimonial-container {
@@ -295,39 +286,55 @@ button:hover {
   background-color: #ff5722;
 }
 
+/* Keyframes for animations */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-      /* Keyframes for animations */
-      @keyframes bounceIn {
-          0% {
-              transform: scale(0);
-              opacity: 0;
-          }
-          50% {
-              opacity: 1;
-              transform: scale(1.1);
-          }
-          100% {
-              transform: scale(1);
-          }
-      }
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px); }
+  50% { transform: translate(2px); }
+  75% { transform: translate(-2px); }
+  100% { transform: translate(0); }
+}
 
-      @keyframes slideIn {
-          from {
-              transform: translateY(20px);
-              opacity: 0;
-          }
-          to {
-              transform: translateY(0);
-              opacity: 1;
-          }
-      }
+/* Responsive Design - Media Queries */
+@media (min-width: 768px) {
+  .product-item {
+    flex-basis: calc(45% - 20px); /* Two products per row on tablets */
+  }
+  #testimonials {
+    grid-template-columns: 1fr 1fr; /* Two columns on tablets */
+  }
+}
 
-      @keyframes shake {
-          0% { transform: translate(0); }
-          25% { transform: translate(-2px); }
-          50% { transform: translate(2px); }
-          75% { transform: translate(-2px); }
-          100% { transform: translate(0); }
-      }
-  </style>
+@media (min-width: 1024px) {
+  .product-item {
+    flex-basis: calc(30% - 20px); /* Three products per row on desktops */
+  }
+  #testimonials {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns on desktops */
+  }
+}
